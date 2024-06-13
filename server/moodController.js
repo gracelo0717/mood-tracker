@@ -1,19 +1,20 @@
 const Mood = require('./moodModel');
 
-const moodController = () => {
-  const createMood = async (req, res, next) => {
+const moodController = {
+  createMood: async (req, res, next) => {
     try {
       const { mood, description } = req.body;
       const newMood = new Mood({ mood, description });
       await newMood.save();
-      res.status(201).json(newMood);
+      res.locals.mood = newMood;
       return next();
     } catch (err) {
       return next({
-        log: 'Error in createMood.js',
+        log: 'Error in moodController.createMood',
         status: 500,
-        message: { err: 'An error occurred in creating mood' },
+        message: { err: 'An error occurred while creating mood' },
       });
     }
-  };
+  },
 };
+module.exports = moodController;

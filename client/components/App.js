@@ -8,8 +8,8 @@ class App extends Component {
       <div className='App'>
         <header className='App-header'>
           <h1>Mood Tracker</h1>
-          <MoodTracker />
         </header>
+        <MoodTracker />
       </div>
     );
   }

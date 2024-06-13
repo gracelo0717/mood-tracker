@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MoodSlider from './MoodSlider';
 
 const MoodForm = () => {
@@ -12,13 +12,20 @@ const MoodForm = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('Mood submitted:', mood);
     console.log('Mood description:', moodDescription);
 
-    setMood(5);
-    setMoodDescription('');
+    try {
+      const URI = 'http://localhost:3000/moods';
+      const response = await fetch(URI);
+      const data = await response.json();
+      setMood(5);
+      setMoodDescription('');
+    } catch (error) {
+      console.error('Error in handleSubmit', error);
+    }
   };
 
   const onMoodDescriptionChange = (event) => {
@@ -27,7 +34,7 @@ const MoodForm = () => {
 
   return (
     <div className='MoodForm'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='form'>
         <MoodSlider mood={mood} onMoodChange={onMoodChange} />
         <input
           type='text'
@@ -35,7 +42,7 @@ const MoodForm = () => {
           placeholder='How are you feeling?'
           onChange={onMoodDescriptionChange}
         />
-        <button type='submit' className='moodBtn'>
+        <button type='submit' className='btn'>
           Submit
         </button>
       </form>

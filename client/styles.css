@@ -73,9 +73,21 @@ p {
   vertical-align: top;
 }
 
+.moodInput:focus {
+  box-shadow: none;
+  outline: rgba(253, 208, 205, 255);
+}
+
 .btn {
   width: 25%;
   text-align: center;
   align-self: center;
-  margin: 30px;
+  margin: 25px;
+  border: none;
+  padding: 8px;
+}
+
+.btn:hover {
+  color: white;
+  background-color: rgba(236, 180, 25, 255);
 }

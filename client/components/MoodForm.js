@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MoodSlider from './MoodSlider';
 
 const MoodForm = () => {
@@ -19,8 +19,16 @@ const MoodForm = () => {
 
     try {
       const URI = 'http://localhost:3000/moods';
-      const response = await fetch(URI);
+      const response = await fetch(URI, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ mood, description: moodDescription }),
+      });
       const data = await response.json();
+      console.log('This is the data from server: ', data);
+
       setMood(5);
       setMoodDescription('');
     } catch (error) {

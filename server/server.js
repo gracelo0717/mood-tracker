@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const moodController = require('./moodController');
 const Mood = require('./moodModel');
 
 const PORT = 3000;
 const app = express();
+app.use(cors());
 
 // create an instance of an express Router called moodRouter
 const moodRouter = express.Router();
@@ -23,12 +25,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 moodRouter.post('/', moodController.createMood, (req, res) => {
+  console.log('body', req.body);
   return res.status(201).json(res.locals.mood);
 });
 
 moodRouter.get('/', (req, res) => {
   Mood.find()
-    .then((moods) => res.status(200).json(moods))
+    .then((moods) => console.log('hello'), res.status(200).json(moods))
     .catch((error) => res.status(500).json({ error: 'Failed to fetch moods' }));
 });
 

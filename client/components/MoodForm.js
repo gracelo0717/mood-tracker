@@ -50,9 +50,14 @@ const MoodForm = () => {
           placeholder='How are you feeling?'
           onChange={onMoodDescriptionChange}
         />
-        <button type='submit' className='btn'>
-          Submit
-        </button>
+        <div className='btn'>
+          <button type='submit' className='btn1'>
+            Submit
+          </button>
+          <button type='submit' className='btn2'>
+            Mood History
+          </button>
+        </div>
       </form>
     </div>
   );

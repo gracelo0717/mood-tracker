@@ -21,7 +21,10 @@
 .MoodTracker {
   background-color: rgba(202, 221, 235, 255);
   width: 23rem;
-  height: 24rem;
+  height: 23rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .slider {

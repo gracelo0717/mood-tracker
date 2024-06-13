@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MoodTracker } from './MoodTracker';
+import MoodTracker from './MoodTracker';
 import '../styles.css';
 
 class App extends Component {

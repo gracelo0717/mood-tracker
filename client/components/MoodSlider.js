@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
 
-const MoodSlider = () => {
-  const [mood, setMood] = useState(5);
-  const moodChanger = (event) => {
-    const value = parseInt(event.target.value);
-    if (!isNaN(value)) {
-      setMood(value);
-    }
-  };
-
+const MoodSlider = ({ mood, onMoodChange }) => {
   return (
     <div className='MoodSlider'>
       <input
@@ -16,7 +8,7 @@ const MoodSlider = () => {
         min='1'
         max='10'
         value={mood}
-        onChange={moodChanger}
+        onChange={onMoodChange}
         step='1'
         className='slider'
       />

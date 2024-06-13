@@ -1,0 +1,45 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App {
+  background-color: rgba(202, 204, 182, 255);
+  width: 25rem;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-header {
+  text-align: center;
+}
+
+.MoodTracker {
+  background-color: rgba(202, 221, 235, 255);
+  width: 23rem;
+  height: 24rem;
+}
+
+.slider {
+  margin-top: 25px;
+  width: 75%;
+  height: 5px;
+  background: #4a86a9;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.5;
+  transition: opacity 0.1s;
+}
+
+.moodInput {
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #96ccd2;
+  border-radius: 5px;
+}

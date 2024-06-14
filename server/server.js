@@ -29,11 +29,11 @@ moodRouter.post('/', moodController.createMood, (req, res) => {
   return res.status(201).json(res.locals.mood);
 });
 
-// moodRouter.get('/', (req, res) => {
-//   Mood.find()
-//     .then((moods) => res.status(200).json(moods))
-//     .catch((error) => res.status(500).json({ error: 'Failed to fetch moods' }));
-// });
+moodRouter.get('/', (req, res) => {
+  Mood.find()
+    .then((moods) => res.status(200).json(moods))
+    .catch((error) => res.status(500).json({ error: 'Failed to fetch moods' }));
+});
 
 app.use('/moods', moodRouter);
 
